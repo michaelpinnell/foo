@@ -1,0 +1,59 @@
+										notes over meeting to learn git
+
+
+		Preliminary source control programs
+		Patch-
+			would send only the patch file that told the user what state changes had taken place
+
+	GIT
+	built on a hierarchical key-value store
+	modeled after linux filesystems
+	each object has a SHA hash id
+
+	four types-
+		blob - a container of arbitrary data
+		tree - directory-like object, contains other objects
+		commit - container of metadata about a tree of objects
+		tag - a pointer to a commit, with metadata
+
+Git: Commit
+	container of metadata about a tree of objects
+	most commonly 
+
+Git: References
+	also reffered to as branches
+	pointers to place in the commit graph
+	master branch is special, but only by convention
+	--git branch <branch name>
+Git: head
+	defines which commit or reference the user's filesystem point to
+	automatically follows references
+	git checkout <ref, SHA or tag>
+
+Git Merges
+	Basics
+		pulls two references together
+		two types:
+			fast forward
+				done by default when the current reference has not moved from the base of the merged reference
+				appends the merged reference to the current reference
+				no new commits created
+			merge commit
+				when differences between two branches arise and nee to be resolved a merge commit will attempt to union the two branches together and show you what needs to be fixed between the two
+Collaboration basics
+	git is workflow agnostic
+	common workflows:
+		feature branches- one main repository, new work exists in branches there
+			one mainline (master) branch
+			one branch for each new feature to be added
+			merges using pull requests
+			production releases annotated with tags (usually)
+			good for projects that are worked on by a single team
+		fork and pull - one main repository, good for multiple team projects
+			project repository
+				few people have access to make changes
+			developer repository
+				you fork (copy) the repository in order to make your own changes, and then once you are done you can request that your code be added to the project repository
+		Git Flow
+			http://nvie.com/posts/a-successful-git-branching-model/
+		
